@@ -88,5 +88,6 @@ function clearScore() {
     xScore = 0
     oScore = 0
     document.querySelector('#scoreboard').textContent = 'X:'+xScore + '  |-----Scoreboard-----|  O:' + oScore
+    clearBoard()
     }
 
