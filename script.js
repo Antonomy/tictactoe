@@ -16,17 +16,17 @@ function checkForWinner(){
     ]
     for (let i=0; i<winCondition.length; i++){
 //Checks if there has already been a winner
-        if (document.querySelector('#winnerAnnouncement').textContent ==='X is the Winner' || document.querySelector('#winnerAnnouncement').textContent ==='O is the Winner'){
+        if (document.querySelector('#winnerAnnouncement').textContent ==='X is the Winner!' || document.querySelector('#winnerAnnouncement').textContent ==='O is the Winner!'){
             return
 //Checks if X is the winner
         }else if (winCondition[i][0].textContent === 'X' && winCondition[i][1].textContent === 'X' && winCondition[i][2].textContent === 'X'){
-            document.querySelector('#winnerAnnouncement').textContent ='X is the Winner'
+            document.querySelector('#winnerAnnouncement').textContent ='X is the Winner!'
             xScore++
             console.log(xScore)
             document.querySelector('#scoreboard').textContent = 'X:'+xScore + '  |-----Scoreboard-----|  O:' + oScore
 //Checks if O is the winner
         } else if (winCondition[i][0].textContent === 'O' && winCondition[i][1].textContent === 'O' && winCondition[i][2].textContent === 'O'){
-            document.querySelector('#winnerAnnouncement').textContent ='O is the Winner'
+            document.querySelector('#winnerAnnouncement').textContent ='O is the Winner!'
             oScore++
             document.querySelector('#scoreboard').textContent = 'X:'+xScore + '  |-----Scoreboard-----|  O:' + oScore
         }
