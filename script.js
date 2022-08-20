@@ -1,5 +1,7 @@
 let squares = document.querySelectorAll('.square')
 let player = ''
+let xScore = 0
+let oScore = 0
 //Checks for Winner
 function checkForWinner(){
     let winCondition =[
@@ -19,9 +21,14 @@ function checkForWinner(){
 //Checks if X is the winner
         }else if (winCondition[i][0].textContent === 'X' && winCondition[i][1].textContent === 'X' && winCondition[i][2].textContent === 'X'){
             document.querySelector('#winnerAnnouncement').textContent ='X is the Winner'
+            xScore++
+            console.log(xScore)
+            document.querySelector('#scoreboard').textContent = 'X:'+xScore + '  |-----Scoreboard-----|  O:' + oScore
 //Checks if O is the winner
         } else if (winCondition[i][0].textContent === 'O' && winCondition[i][1].textContent === 'O' && winCondition[i][2].textContent === 'O'){
             document.querySelector('#winnerAnnouncement').textContent ='O is the Winner'
+            oScore++
+            document.querySelector('#scoreboard').textContent = 'X:'+xScore + '  |-----Scoreboard-----|  O:' + oScore
         }
     }
 }
@@ -66,7 +73,7 @@ function oStarts() {
     player = 'O'
 }
 
-//Clear Board Button Function
+//Clear Board Button 
 function clearBoard() {
     squares.forEach(element => {
         element.textContent = ''
@@ -76,4 +83,10 @@ function clearBoard() {
         player = ''
     })
 }
+//Clear Score Button 
+function clearScore() {
+    xScore = 0
+    oScore = 0
+    document.querySelector('#scoreboard').textContent = 'X:'+xScore + '  |-----Scoreboard-----|  O:' + oScore
+    }
 
