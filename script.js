@@ -24,24 +24,27 @@ function checkForWinner(){
 //Takes inputs for player selections
 squares.forEach(element => {
     element.addEventListener('click', function() {
+//Checks if Starting Player has been selected
         if (player !== 'X' && player !== 'O'){
             alert("Select starting player!")
             return
         }else {
-        //Marks box only if box has not been marked
-            if (element.textContent === ''){
-            element.textContent = player
-            checkForWinner()
-            } else {
+//Checks if box has already been seelected
+            if (element.textContent === 'X' ||element.textContent === 'O'){
                 return
-            }
-            //Switches to next player
-            if (player === 'X'){
-                element.classList.add('xMarker')
-                player = 'O'
-            }else {
-                element.classList.add('yMarker')
-                player = 'X'
+            } else {
+//Makes player selection, checks for winner, continues to other players turn
+                if (player === 'X'){
+                    element.textContent = 'X'
+                    element.classList.add('xMarker')
+                    checkForWinner()
+                    player = 'O'
+                }else {
+                    element.textContent = 'O'
+                    element.classList.add('yMarker')
+                    checkForWinner()
+                    player = 'X'
+                }
             }
         }
     })
