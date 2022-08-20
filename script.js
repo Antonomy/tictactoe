@@ -13,10 +13,15 @@ function checkForWinner(){
         [squares[2],squares[4],squares[6]]
     ]
     for (let i=0; i<winCondition.length; i++){
-        if (winCondition[i][0].textContent === 'X' && winCondition[i][1].textContent === 'X' && winCondition[i][2].textContent === 'X'){
-            document.querySelector('#scoreboard').textContent ='X is the Winner'
+//Checks if there has already been a winner
+        if (document.querySelector('#winnerAnnouncement').textContent ==='X is the Winner' || document.querySelector('#winnerAnnouncement').textContent ==='O is the Winner'){
+            return
+//Checks if X is the winner
+        }else if (winCondition[i][0].textContent === 'X' && winCondition[i][1].textContent === 'X' && winCondition[i][2].textContent === 'X'){
+            document.querySelector('#winnerAnnouncement').textContent ='X is the Winner'
+//Checks if O is the winner
         } else if (winCondition[i][0].textContent === 'O' && winCondition[i][1].textContent === 'O' && winCondition[i][2].textContent === 'O'){
-            document.querySelector('#scoreboard').textContent ='O is the Winner'
+            document.querySelector('#winnerAnnouncement').textContent ='O is the Winner'
         }
     }
 }
@@ -52,13 +57,13 @@ squares.forEach(element => {
 
 //X Starts Button
 function xStarts() {
-    player = 'X'
     clearBoard()
+    player = 'X'
 }
 //O Starts Button
 function oStarts() {
-    player = 'O'
     clearBoard()
+    player = 'O'
 }
 
 //Clear Board Button Function
@@ -67,7 +72,8 @@ function clearBoard() {
         element.textContent = ''
         element.classList.remove('xMarker')
         element.classList.remove('yMarker')
-        document.querySelector('#scoreboard').textContent =''
+        document.querySelector('#winnerAnnouncement').textContent =''
+        player = ''
     })
 }
 
