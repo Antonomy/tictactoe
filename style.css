@@ -14,7 +14,7 @@ h2 {
 #gameboard {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(3, 30vw);
+    grid-template-rows: repeat(3, 25vw);
     gap: 10px;
 }
 
@@ -23,6 +23,7 @@ h2 {
     outline: solid;
     text-align: center;
     vertical-align: center;
+    font-size: 20vw;
 }
 
 .xMarker{
